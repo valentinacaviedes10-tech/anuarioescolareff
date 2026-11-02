@@ -1,0 +1,2948 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Álbum interactivo del anuario escolar del Colegio Eugenio Ferro Falla.">
+  <title>Anuario Escolar | Colegio Eugenio Ferro Falla</title>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" id="homeLink" aria-label="Ir a la portada">
+      <span class="brand-seal">EFF</span>
+      <span><strong>Anuario escolar</strong><small>Colegio Eugenio Ferro Falla</small></span>
+    </a>
+    <div class="top-actions">
+      <button class="utility-btn" id="contentsBtn" type="button">☷ <span>Índice</span></button>
+      <button class="utility-btn" id="printBtn" type="button">⇩ <span>Imprimir / PDF</span></button>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <section class="reader-heading">
+      <div>
+        <p class="eyebrow">NUESTRA HISTORIA · NUESTROS RECUERDOS</p>
+        <h1>Un libro de <em>momentos</em></h1>
+      </div>
+      <p class="reader-description">Explora los perfiles de tus compañeros con los controles del álbum.</p>
+    </section>
+
+    <section class="reader-layout" aria-label="Lector del anuario">
+      <aside class="side-rail">
+        <div class="rail-label">NAVEGACIÓN</div>
+        <button class="rail-btn" id="firstBtn" type="button" title="Ir a la portada" aria-label="Ir a la portada">⌂<span>Portada</span></button>
+        <button class="rail-btn" id="prevBtn" type="button" title="Página anterior" aria-label="Página anterior">←<span>Anterior</span></button>
+        <button class="rail-btn" id="nextBtn" type="button" title="Página siguiente" aria-label="Página siguiente">→<span>Siguiente</span></button>
+        <button class="rail-btn" id="lastBtn" type="button" title="Ir al final" aria-label="Ir a la última página">⇥<span>Final</span></button>
+        <div class="rail-divider"></div>
+        <label class="jump-label" for="pageSelect">IR A PÁGINA</label>
+        <select id="pageSelect" aria-label="Seleccionar página">
+          <option value="0">Portada</option>
+          <option value="1">Perfil 01</option><option value="2">Perfil 02</option><option value="3">Perfil 03</option><option value="4">Perfil 04</option><option value="5">Perfil 05</option><option value="6">Perfil 06</option><option value="7">Perfil 07</option><option value="8">Perfil 08</option><option value="9">Perfil 09</option><option value="10">Perfil 10</option><option value="11">Perfil 11</option><option value="12">Perfil 12</option><option value="13">Perfil 13</option><option value="14">Perfil 14</option><option value="15">Perfil 15</option><option value="16">Perfil 16</option><option value="17">Perfil 17</option><option value="18">Perfil 18</option><option value="19">Perfil 19</option><option value="20">Perfil 20</option><option value="21">Perfil 21</option><option value="22">Perfil 22</option><option value="23">Perfil 23</option><option value="24">Perfil 24</option><option value="25">Perfil 25</option><option value="26">Perfil 26</option><option value="27">Perfil 27</option><option value="28">Perfil 28</option><option value="29">Perfil 29</option><option value="30">Perfil 30</option>
+        </select>
+      </aside>
+
+      <div class="album-stage">
+        <div class="album-shadow" aria-hidden="true"></div>
+        <div class="album" id="album">
+          <section class="sheet cover-sheet current" data-page="0" aria-label="Portada del anuario">
+            <div class="cover-border">
+              <div class="cover-stripe stripe-top"></div>
+              <div class="cover-stripe stripe-bottom"></div>
+              <div class="cover-content">
+                <div class="cover-school">
+                  <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="cover-crest">
+                  <p class="cover-kicker">COLEGIO</p>
+                  <h2>EUGENIO<br><span>FERRO FALLA</span></h2>
+                  <p class="cover-motto">Ciencia y Virtud</p>
+                </div>
+                <div class="ornament"><span>✦</span></div>
+                <div class="cover-title">
+                  <p>MEMORIAS · AMISTAD · APRENDIZAJE</p>
+                  <h1>ANUARIO<br><em>ESCOLAR</em></h1>
+                  <p class="cover-tagline">Cada persona es parte de nuestra historia.</p>
+                </div>
+                <div class="cover-info">
+                  <div><span>PROMOCIÓN</span><b>1101</b></div>
+                  <div><span>AÑO</span><b>2026</b></div>
+                </div>
+                <div class="cover-illustration" aria-hidden="true">
+                  <div class="open-book"><span></span><span></span></div>
+                  <div class="book-stars">✦　✦　✦</div>
+                </div>
+                <div class="cover-bottom-text">CIENCIA Y VIRTUD <i>•</i> UNA GENERACIÓN, MIL RECUERDOS</div>
+              </div>
+            </div>
+          </section>
+          
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  PLANTILLA DEL ANUARIO — CÓMO LLENAR CADA PERFIL                 ║
+  ╠══════════════════════════════════════════════════════════════════╣
+  ║  Busca el bloque "PERFIL 01", "PERFIL 02"… (Ctrl+F) y edita solo ║
+  ║  lo que está marcado con ✏️. Cada perfil tiene:                  ║
+  ║                                                                  ║
+  ║   1. FOTO CARNÉ ........ cambia el src="img/fotos/NN.jpg"        ║
+  ║   2. NOMBRE COMPLETO ... escribe entre <div class="writing-line">║
+  ║   3. FRASE FAVORITA .... idem                                    ║
+  ║   4. RECUERDO FAVORITO . idem                                    ║
+  ║   5. ASPIRACIONES ...... un <li>…</li> por aspiración            ║
+  ║                          (puedes agregar o quitar <li>)          ║
+  ║   6. AGRADECIMIENTOS ... escribe entre las etiquetas             ║
+  ║   7. FIRMA ............. cambia el src="img/firmas/NN.png"       ║
+  ║                                                                  ║
+  ║  CARPETAS (junto a index.html):                                  ║
+  ║    img/escudo.png        → escudo del colegio                    ║
+  ║    img/fotos/01.jpg …    → fotos tipo carné                      ║
+  ║    img/firmas/01.png …   → firmas (mejor PNG con fondo blanco    ║
+  ║                            o transparente)                       ║
+  ║                                                                  ║
+  ║  Si la imagen aún no existe, se muestra el recuadro de ejemplo.  ║
+  ║  PROMOCIÓN y AÑO se cambian en la portada y en cada pie de       ║
+  ║  página (busca "1101" y "2026").                                 ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
+
+      <!-- ═════════════════════════ PERFIL 01 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="1" aria-label="Perfil de estudiante 1" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">01</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/01.jpg" alt="Foto tipo carné del perfil 01" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/01.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 01</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Laura Liney Alarcon Cortes</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">El que persevera alcanza </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">Haber encontrado una persona realmente leal en mi vida</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>Enfermera</li>
+                  <li>Doctora</li>
+                  <li>Ingeniera</li>
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Agradezco a Dios y a mi familia que me acompañaron en esta etapa, por su apoyo, consejos y paciencia.</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/Screenshot_20261026_162131_Excel - Laura Alarcon.png" alt="Firma del perfil 01" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">01 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 02 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="2" aria-label="Perfil de estudiante 2" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">02</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/02.jpeg" alt="Foto tipo carné del perfil 02" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/02.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 02</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Narly Lizeth Amaya Losada </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">No entendí nada</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">Mi recuerdo favorito es conocer a amistades que me ayudaron en el peor momento y me sacaban una sonrisa</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li> Seguir estudiando </li>
+                  <li> Terminar hasta sacar el tecnólogo </li>
+                  <li> Trabajar para conseguir mis cosas  </li>
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">A mis padres y a todos los docentes que me acompañaron </div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/WhatsApp_Image_2026-10-26_at_3.13.19_PM-removebg-preview - Narly Amaya.png" alt="Firma del perfil 02" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">02 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 03 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="3" aria-label="Perfil de estudiante 3" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">03</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/03.jpeg" alt="Foto tipo carné del perfil 03" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/03.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 03</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Andres Felipe Bastidas Lombana</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">Relax que yo remonto</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">Mi noviazgo </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+            
+                  <li>Odontologo</li>
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Agradezco a mis padre por todo el esfuerzo  que hicieron todos estos años para que yo pudiera llegar hasta acá MI GRADO DE BACHILLER </div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/03.png" alt="Firma del perfil 03" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">03 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 04 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="4" aria-label="Perfil de estudiante 4" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">04</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/04.png" alt="Foto tipo carné del perfil 04" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/04.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 04</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Nycolt Danihela Barrera Mosquera</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">Su Madreeee</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">Mi recuerdo favorito fue cuando iniciamos nuestro grupito de 4 en septimo con unas amigas </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>Estudiar en el Sena </li>
+                  <li> Hacer orgullosa a mi madre</li>
+                  <li>Infante de Marina Chef</li>
+                  <li>Chef</li>
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Le doy gracias a mi madre por darme u apoyo incondicional en mis etudios y por siempre confiar en mi </div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/firma - Danihela Barrera.png" alt="Firma del perfil 04" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">04 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 05 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="5" aria-label="Perfil de estudiante 5" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">05</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/05.png" alt="Foto tipo carné del perfil 05" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/05.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 05</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Estiven Julian Benitez castro</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">Mire a este negro</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">Sin duda, mi recuerdo favorito fue el día en que me organizaron una fiesta de cumpleaños sorpresa. Ver reunidos a mis 4 mejores amigos, para celebrar conmigo es un momento que guardo con muchísimo cariño en el corazón.</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>Mi mayor aspiración es convertirme en doctor y alcanzar todas mis metas profesionales, preparándome con dedicación para proteger la salud de las personas y cumplir con éxito cada objetivo que me proponga en el futuro.</li>
+                
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Agradezco profundamente a mis compañeros, familiares y profesores por haberme acompañado y guiado en esta etapa. Su apoyo y compañía fueron fundamentales durante todo mi proceso educativo en la secundaria.</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/121303-removebg-preview - Estiven Benítez Castro.png" alt="Firma del perfil 05" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">05 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 06 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="6" aria-label="Perfil de estudiante 6" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">06</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/6.png" alt="Foto tipo carné del perfil 06" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/06.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 06</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Nikoll Lizeth Bocanegra Giraldo</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">En nombre de Dios, todo lo lograre</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">Todos los recuerdos de octavo, pero especialmente cuando dañamos un candado para no tener clases con una profesora</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>Estudiar la carrera de mis sueños</li>
+            
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Gracias a mi familia por el apoyo</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/06.png" alt="Firma del perfil 06" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">06 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 07 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="7" aria-label="Perfil de estudiante 7" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">07</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/07.jpeg" alt="Foto tipo carné del perfil 07" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/07.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 07</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Danna Valentina Caviedes Perdomo</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">ay Dios mio</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">Mi recuerdo favorito es cuando unos compañeros estaban jugando con una pelota de papel, y accidentalmente le pegaron a una profesora casi dañándole las gafas.   </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>Estudiar psicología, o seguir con el técnico.</li>
+          
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Les doy las gracias a mis padres por su apoyo emocional, económico, a mis maestros por su paciencia, y todas las enseñanzas que me han dejado.  </div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/0.7.png" alt="Firma del perfil 07" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">07 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 08 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="8" aria-label="Perfil de estudiante 8" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">08</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/08.jpeg" alt="Foto tipo carné del perfil 08" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/08.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 08</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Zaidy Liseth Cuellar Caviedes</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">Ay no que pena</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">Mi recuerdo favorito de decimo fue compartir risas, locuras y momento inovidables con mis compañeros, creando recuerdos que siempre llevare en mi corazó.</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li> Estudiar en el SENA</li>
+                  <li>Hacer el orgullosa de mi familia</li>
+                  <li> Cumpli mi sueño sin rendirme</li>
+                  <li> Crecer como persona y aprender de mis errores</li>
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Agradezco a mis padres por su amor incondicional, por apoyarme en cada momento y por hacer tantos esfuerzos para darme lo mejor. Gracias por sus consejos, por confiar en mí y por motivarme a seguir adelante, incluso cuando las cosas se ponen difíciles. Ustedes son una parte fundamental de mi vida y una de mis mayores motivaciones para cumplir mis sueños. Todo lo que hacen por mí lo llevo en mi corazón, y espero algún día poder devolverles un poquito de todo lo que me han dado. Los amo mucho y me siento muy afortunada de tenerlos en mi vida.</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/0.8.png" alt="Firma del perfil 08" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">08 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 09 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="9" aria-label="Perfil de estudiante 9" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">09</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/09.jpeg" alt="Foto tipo carné del perfil 09" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/09.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 09</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">kewin daniel escobar ramirez</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">ole no</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">el dia que jugue un torneo departamental</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>ser profesional en multimedia</li>
+              
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">le agradesco a mi familia por apoyarme</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/0.9.jpeg" alt="Firma del perfil 09" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">09 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 10 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="10" aria-label="Perfil de estudiante 10" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">10</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/10..jpeg" alt="Foto tipo carné del perfil 10" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/10.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 10</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Laura Fuentes Aranda </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">Estoy siendo victima de Xenofobia por parte de mi compañero Benítez</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">Todos los días a partir de 9no han sido como el mejor de todos. Pero los mejores como Prom fueron las horas lúdicas a la ultima hora de todos los miércoles.</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>Ser programadora y tener una vida tranquila y digna.</li>
+                  
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">A mi padre, Leonardo Fuentes, por su apoyo económico durante mi formación; a mis hermanos mayores, Cristian Galindo y Yonatan Galindo, por tenderme la mano cuando lo necesité; y a Esther Hernández, por acompañarme espiritual y emocionalmente en este proceso.
+
+Pero, sobre todo, mi agradecimiento más profundo es para mi mamá, Lina Aranda. Gracias por cada sacrificio, por cada esfuerzo silencioso y por luchar incansablemente para darme un futuro mejor. Gracias por salvarme de la ignorancia, por creer en mí incluso en medio de las dificultades y por dejarlo todo con tal de verme llegar lejos. Si hoy puedo soñar con un futuro lleno de oportunidades, es porque tú has construido el camino con tus propias manos. </div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/10.png" alt="Firma del perfil 10" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">10 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 11 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="11" aria-label="Perfil de estudiante 11" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">11</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/11..jpeg" alt="Foto tipo carné del perfil 11" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/11.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 11</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Laura Valentina Galindo Diaz</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">Tengo Sueño</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">Mi recuerdo favorito es cuando conocí por primera vez a mi mejor amiga Valeria  </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>Poder especializarme en lo que mas aspiro </li>
+                  
+              
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Le agradezco a mis padres por darme motivación y fuerzas para lograr mis metas y poder seguir adelante.</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                   <img class="signature-img" src="./img/firma/11.jpeg" alt="Firma del perfil 10" onerror="this.remove()">
+                
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">11 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 12 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="12" aria-label="Perfil de estudiante 12" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">12</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/12..jpg" alt="Foto tipo carné del perfil 12" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/12.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 12</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Mariana García Pérez </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">Falsos</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">La vez que hicieron caer a Edwin y de paso a Natalia en el puente de guaunda y quedó cochino </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>Psicología o licenciatura en lengua castellana </li>
+                  
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Agradezco principalmente a Dios y a mis padres sobre todo a mi hermana Nubia quien ah hecho el papel principal en apoyarme tanto académica como financieramente, los amo.</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/12.png" alt="Firma del perfil 12" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">12 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 13 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="13" aria-label="Perfil de estudiante 13" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">13</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/13..jpeg" alt="Foto tipo carné del perfil 13" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/13.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 13</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Jesus Fernando Gutierres Diz</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">Los errores ocurren</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">Cuando obtuve las 80horas sociales sin hacer practicamente nada.</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>Convertirme en un Medico </li>
+                  
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Gracias a mis padres, hermano y profesores que me apoyaron en todo para poder salir adelante.</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/13.jpeg" alt="Firma del perfil 13" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">13 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 14 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="14" aria-label="Perfil de estudiante 14" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">14</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/14..jpg" alt="Foto tipo carné del perfil 14" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/14.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 14</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Laura Angeline Marinez Olaya </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">no joda </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">Con mis padres de pequeña</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>Estudiar derecho</li>
+                  
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">agradezco a mi familia</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/14.jpg" alt="Firma del perfil 14" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">14 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 15 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="15" aria-label="Perfil de estudiante 15" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">15</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/15..png" alt="Foto tipo carné del perfil 15" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/15.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 15</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Francy Fidelina Medina Garcia</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">Todo es mental</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">mi recuerdo favorito en general es cuando compartimos</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>Graduarme </li>
+                  <li>ingresar a la universidad</li>
+                  <li> estudiar Medicina</li>
+                  <li> crecer como persona.</li>
+                  <li>  ayudar a mi familia.</li>
+                  <li>  conocer nuevos lugares </li>
+                  <li>  cumplir cada uno de mis sueños.</li>
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Agradezco a mi familia, docentes y compañeros por su apoyo, dedicación y enseñanzas durante esta etapa, que han contribuido a mi formación personal y académica.</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/15.png" alt="Firma del perfil 15" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">15 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 16 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="16" aria-label="Perfil de estudiante 16" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">16</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/16..png" alt="Foto tipo carné del perfil 16" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/16.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 16</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Isabella Monje Vega</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">Te cuento un chiste amisga</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">Cuando estaba en el puente con mis amigos y nos inventamos un caso para un juicio </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>Tener mi propia empresa   </li>
+                  <li>llegar a componer mis propias canciones</li>
+                  
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">le agradezco a mi mamá, tío y abuela por nunca dejarme sola y confiar en mi incluso cuando yo no lo podía hacer </div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/16.png" alt="Firma del perfil 16" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">16 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 17 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="17" aria-label="Perfil de estudiante 17" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">17</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/17..jpeg" alt="Foto tipo carné del perfil 17" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/17.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 17</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">saory valentina montaña piñeros</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">tengo hambre</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">cuando me la pasaba jugando voleibol </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>salir del colegio y formar una carrera</li>
+                  
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">agradecimiento a todos los que me acompañaron en mi formación académica </div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/17.png" alt="Firma del perfil 17" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">17 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 18 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="18" aria-label="Perfil de estudiante 18" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">18</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/18..png" alt="Foto tipo carné del perfil 18" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/18.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 18</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Julieth Valentina Mora Esquivel</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">somos la resistencia</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">en 7mo cuando jugábamos futbol la mayoría del salón unidos</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>estudiar lo que me gusta y terminarlo, trabajar en eso y formar una hermosa familia</li>
+                  
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">agradezco primeramente a Dios por haberme permitirme estar donde estoy y con vida, y a mis padres por apoyarme en cada momento de mi vida y supliendo cada necesidad q tengo </div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/18.png" alt="Firma del perfil 18" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">18 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 19 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="19" aria-label="Perfil de estudiante 19" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">19</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/19..jpeg" alt="Foto tipo carné del perfil 19" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/19.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 19</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Cristian Rene Muñoz Quintero</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">amo a angeline</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">cuando tuvimos una salida con Alvaro y nos escapamos para piscina</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>hacer un tecnologo en el SENA, ir a la UNI y estudiar lo que me gusta para ganar mucha plata</li>
+                  
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">cc</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/19.png" alt="Firma del perfil 19" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">19 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 20 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="20" aria-label="Perfil de estudiante 20" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">20</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/20..jpeg" alt="Foto tipo carné del perfil 20" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/20.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 20</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Alex Felipe Ortiz narvaez</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">No mienta</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">cuando jugaba micro con mi compañeros</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>estudiar mi carrera de mis sueños y ser un gran profecional </li>
+                  
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Primero que todo, quiero dar gracias a Dios por haberme permitido vivir esta experiencia escolar con salud y vida. También agradecer a los profesores que se esforzaron por enseñarnos con dedicación, paciencia y esfuerzo todos sus conocimientos y valores que nos puedan servir en nuestra vida cotidiana. Por último, estaré infinitamente agradecido con mis padres por haberme acompañado y apoyado en todos mis proyectos y en mi trayectoria como estudiante a través del tiempo.</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/20.png" alt="Firma del perfil 20" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">20 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 21 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="21" aria-label="Perfil de estudiante 21" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">21</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/21..jpeg" alt="Foto tipo carné del perfil 21" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/21.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 21</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Duvan Felipe Ortiz Sarmiento </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">yo si estudie pero se me olvido todo</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">cuando jugué futbol con mis compañeros y nos golearon pero no faltaron las risas</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>Mis aspiraciones son terminar mis estudios, graduarme del colegio, estudiar lo que me gusta  convertirme en un gran profesional. Sueño con tener un buen trabajo, una casa propia, ayudar económicamente a mi familia, hacer sentir orgullosos a mi mamá y hermano, viajar y conocer nuevos lugares. Aspiro a ser una persona responsable, humilde y respetuosa, cumplir cada uno de mis sueños y construir un futuro lleno de felicidad, éxitos y bendiciones, siempre con la ayuda de Dios.</li>
+                  
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Gracias, Dios, por permitirme vivir esta hermosa etapa de mi vida, por darme la oportunidad de aprender, por cada compañero que puso una sonrisa en mis días y por cada maestro que me enseñó algo más que una lección. Gracias por los momentos felices, por las dificultades que me hicieron más fuerte y por los recuerdos que siempre llevaré en mi corazón. Hoy entiendo que el colegio no solo me dejó conocimientos, sino también amistades, experiencias y enseñanzas que me acompañarán toda la vida.</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/21.png" alt="Firma del perfil 21" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">21 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 22 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="22" aria-label="Perfil de estudiante 22" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">22</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/22..jpeg" alt="Foto tipo carné del perfil 22" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/22.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 22</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Joan sebastian ramirez garcia </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">sapa</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double"></div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>ser un gran empresario </li>
+                  
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Le agradezco a mis papás por el apoyo incondicional y a Dios</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/22.png" alt="Firma del perfil 22" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">22 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 23 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="23" aria-label="Perfil de estudiante 23" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">23</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/23..jpg" alt="Foto tipo carné del perfil 23" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/23.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 23</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Julieta</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">Todo pasa por algo, los planes de Dios son perfectos </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">Cuando me cay en un rio con mis amigos y aprovechamos y nos bañamos.</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>quiero cumplir mis dos sueño que es llegar a ser profesora de pedagogía infantil para mostrar esa amor tan grande que tengo con los niños y a enseñarles las base que les van a servir para el resto de su vida , y también después de cumplir eso estudiar para ser azafata es unos de mis mayores sueños y también después de cumplir eso estudiar para ser azafata es unos de mis mayores sueños </li>
+              
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">A mis papas que han estado en el momento en que naci y me han apollado en todo</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/23.png" alt="Firma del perfil 23" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">23 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 24 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="24" aria-label="Perfil de estudiante 24" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">24</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/24..png" alt="Foto tipo carné del perfil 24" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/24.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 24</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Heilyn Yireth Sanchez Dussan </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">ya quisiera yo </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">el compartir de la salchipapa </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>llegar ser una persona exitosa que no necesita ayuda de los demás </li>
+                  
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">agradezco a mi familia, amigos , compañeros y profesores por darme enseñanzas , ejemplos y aprendizaje que me ayudaron a formarme como la persona que soy ahora .</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/24.jpeg" alt="Firma del perfil 24" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">24 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 25 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="25" aria-label="Perfil de estudiante 25" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">25</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/25..png" alt="Foto tipo carné del perfil 25" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/25.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 25</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Thaliana Sofia Sanchez Rocha</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">vive la vida</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">el 2022 con mis amigas</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>ser feliz</li>
+                  
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">agradezco a mdzs , a mis padres, a mis profesores y a los compañeros para ayudarme a lograr mis metas </div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/25.jpg" alt="Firma del perfil 25" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">25 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 26 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="26" aria-label="Perfil de estudiante 26" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">26</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/26..jpeg" alt="Foto tipo carné del perfil 26" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/26.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 26</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Hillary Natalia Serrato Acosta </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">"No todo es para siempre, pero tú sí vas a poder con todo."</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">Una vez que estaba caminando con mis amigos por el patio del colegio y después nos fuimos para un lado el cual había un río esa vez me lanzaron al río con otro compañero yo no quería culpar ni avisar a la responsable pero ya la habían delatado en coordinación nos llevaron para allá le pusieron observación y nos regañaron</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>Quiero terminar mi bachillerato con la ayuda de Dios graduarme y estudiar para ser un gran licenciada en educación infantil </li>
+                 
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Quiero terminar mi bachillerato con la ayuda de Dios graduarme y estudiar para ser un gran licenciada en educación infantil </div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/26.jpg" alt="Firma del perfil 26" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">26 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 27 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="27" aria-label="Perfil de estudiante 27" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">27</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/27..png" alt="Foto tipo carné del perfil 27" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/27.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 27</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Laura sofia</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">uy no atrás satanás</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">mi recuerdo favorito es cuando todos fuimos a la casa de el man que me gustaba y ellos se pusieron a de serenata la canción de  la ventana marroncita </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li> Quiero graduarme feliz junto a mis amigos </li>
+                  <li>Terminar el tecnólogoo</li>
+                  <li>Homologar y estudiar diseño</li>
+                  <li> Estudiar mas cursos en el sena</li>
+                  <li> Entrar en la universidad y estudiar biología</li>
+                  <li>Graduarme de la universidad</li>
+                  <li>Ser profesional con lo estudiado</li>
+
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">gracias a mis amigos: Laura fuentes, Ancizar Triana, Joan Ramírez, Isabella moje, Yuvettslit Yunda... y a todo el salón por ser tan especial para mi y por ser tan unidos a pesar de nuestras diferencias</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/27.png" alt="Firma del perfil 27" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">27 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 28 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="28" aria-label="Perfil de estudiante 28" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">28</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/28..jpeg" alt="Foto tipo carné del perfil 28" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/28.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 28</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Nicolas soto calderon</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">yo que me saque un 3 me conformo</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">cuando jugamos un partido con mis amigos y nos golearon </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>tener un trabajo estable, tener un titulo profesional de ingeniero y estar junto a mis padres </li>
+                  
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Primero que todo darle el agradecimiento a mis padres que son los que me han apoyado siempre y en cualquier circunstancia también a mis abuelas que es otro mérito de orgullo saber que tengo una familia unida y que me apoya en todo y gracias a eso es podido con todo y siempre salir adelante afrontando todo</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/28.png" alt="Firma del perfil 28" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">28 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 29 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="29" aria-label="Perfil de estudiante 29" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">29</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/29..jpeg" alt="Foto tipo carné del perfil 29" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/29.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 29</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Ancizar Steven Triana Murcia</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">six seven</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">El día del compartir en 10°</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>Terminar el tecnólogo</li>
+                  <li>Irme del país junto a mi familia</li>
+                  <li>Hacer la Universidad</li>
+                   <li>Tener hijos</li>
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">Agradezco a mis padres por el gran amor que me han dado, a mis hermanos, al profe sebas por ser tan buen docente y a mis amigos por hacer los dias tan divertidos y mas faciles</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/29.jpeg" alt="Firma del perfil 29" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">29 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════ PERFIL 30 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="30" aria-label="Perfil de estudiante 30" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">30</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/30..jpeg" alt="Foto tipo carné del perfil 30" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/30.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 30</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Yuvettslit Yunda Cortes</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">Life goes on</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">mi mamá y yo en la graduación de 9no, por como se veía y sentí su orgullo</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li> ayudar a mi mllegar a ser profesional en marketing,amá, viajar, tener un trabajo estable, obtener dinero y especializarme en algo</li>
+              
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">A mi mamá y a mi hermano, por acompañarme durante todo este proceso, por su esfuerzo para conseguir lo que yo necesitaba y, sobre todo por demostrarme su apoyo, amor y orgullo</div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/30.png" alt="Firma del perfil 30" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">30 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+       <!-- ═════════════════════════ PERFIL 31 ═════════════════════════ -->
+      <section class="sheet profile-sheet" data-page="31" aria-label="Perfil de estudiante 31" hidden>
+        <div class="sheet-frame">
+          <header class="school-header">
+            <img src="img/escudo.png" alt="Escudo del Colegio Eugenio Ferro Falla" class="crest">
+            <div class="school-heading-text">
+              <p class="school-kicker">INSTITUCIÓN EDUCATIVA</p>
+              <h2>Colegio Eugenio Ferro Falla</h2>
+              <p class="motto">Ciencia y Virtud</p>
+            </div>
+            <span class="header-number">31</span>
+          </header>
+
+          <div class="profile-grid">
+            <aside class="photo-side">
+              <div class="photo-frame">
+                <!-- ✏️ FOTO TIPO CARNÉ: cambia el nombre del archivo en src -->
+                <img class="student-photo" src="./img/fotos de perfil/31..jpg" alt="Foto tipo carné del perfil 31" onerror="this.remove()">
+                <div class="photo-placeholder">
+                  <span class="camera-icon" aria-hidden="true">◎</span>
+                  <strong>Foto tipo carné</strong>
+                  <small>Agrega tu foto en img/fotos/31.jpg</small>
+                </div>
+              </div>
+              <div class="memory-note">
+                <span class="note-stars">✦ ✦ ✦</span>
+                <p>“Juntos hacemos<br>la historia”</p>
+              </div>
+              <div class="color-stamp">PROMOCIÓN<br><b>1101</b></div>
+            </aside>
+
+            <div class="student-content">
+              <div class="section-title">
+                <span class="section-index">PERFIL 31</span>
+                <h1>Mi <em>historia</em></h1>
+                <p>Un recuerdo que siempre llevaré conmigo.</p>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">01</span> Nombre completo</h3>
+                <!-- ✏️ NOMBRE COMPLETO -->
+                <div class="writing-line">Johan Sebastian Masmelas Vega</div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">02</span> Frase favorita</h3>
+                <!-- ✏️ FRASE FAVORITA -->
+                <div class="writing-line">La constancia consede la victoria </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">03</span> Recuerdo favorito</h3>
+                <!-- ✏️ RECUERDO FAVORITO -->
+                <div class="writing-line double">Cuando me gradue de Ingeniero </div>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">04</span> Mis aspiraciones</h3>
+                <!-- ✏️ ASPIRACIONES: un <li> por cada aspiración -->
+                <ul class="aspiration-list">
+                  <li>Doctorado en Educacion</li>
+                  <li>Tener Salud</li>
+                  <li>Ser feliz</li>
+              
+                </ul>
+              </div>
+
+              <div class="profile-field">
+                <h3><span class="field-mark">05</span> Agradecimientos</h3>
+                <!-- ✏️ AGRADECIMIENTOS -->
+                <div class="writing-line double">a mi familia quiero agradecerles por ser mi mayor refujio y mi equipo incondicional. </div>
+              </div>
+
+              <div class="profile-field signature-field">
+                <h3><span class="field-mark">06</span> Firma</h3>
+                <!-- ✏️ FIRMA: cambia el nombre del archivo en src -->
+                <div class="signature-space">
+                  <img class="signature-img" src="./img/firma/31.jpg" alt="Firma del perfil 31" onerror="this.remove()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="sheet-footer">
+            <span>ANUARIO ESCOLAR <b>•</b> EFF</span>
+            <span>Promoción 1101 <i></i> Año 2026</span>
+            <span class="footer-page">30 <b>/</b> 31</span>
+          </footer>
+        </div>
+      </section>
+
+     
+    
+    
+        </div>
+      </div>
+    </section>
+
+    <footer class="bottom-controls">
+      <div class="page-readout"><strong id="currentPage">Portada</strong><span id="pageCount">1 / 32</span></div>
+      <div class="progress-area"><div class="progress-track"><span id="progressBar"></span></div></div>
+      <div class="quick-controls">
+        <button id="prevBottomBtn" type="button" aria-label="Página anterior">←</button>
+        <button id="nextBottomBtn" class="next-round" type="button" aria-label="Página siguiente">→</button>
+      </div>
+    </footer>
+    <p class="keyboard-hint">Consejo: también puedes usar las flechas del teclado ← → o elegir una página en el menú.</p>
+  </main>
+
+  <dialog id="contentsDialog" class="contents-dialog">
+    <div class="dialog-heading"><div><p class="eyebrow">ANUARIO ESCOLAR</p><h2>Índice de páginas</h2></div><button id="closeContentsBtn" type="button" aria-label="Cerrar índice">×</button></div>
+    <p>Selecciona la portada o el perfil que quieres consultar.</p>
+    <div class="contents-grid" id="contentsGrid">
+      <button type="button" data-go="0" class="contents-item cover-item">✦ <span>Portada</span></button>
+      <button type="button" data-go="1" class="contents-item"><b>01</b><span>Perfil 01</span></button>
+      <button type="button" data-go="2" class="contents-item"><b>02</b><span>Perfil 02</span></button>
+      <button type="button" data-go="3" class="contents-item"><b>03</b><span>Perfil 03</span></button>
+      <button type="button" data-go="4" class="contents-item"><b>04</b><span>Perfil 04</span></button>
+      <button type="button" data-go="5" class="contents-item"><b>05</b><span>Perfil 05</span></button>
+      <button type="button" data-go="6" class="contents-item"><b>06</b><span>Perfil 06</span></button>
+      <button type="button" data-go="7" class="contents-item"><b>07</b><span>Perfil 07</span></button>
+      <button type="button" data-go="8" class="contents-item"><b>08</b><span>Perfil 08</span></button>
+      <button type="button" data-go="9" class="contents-item"><b>09</b><span>Perfil 09</span></button>
+      <button type="button" data-go="10" class="contents-item"><b>10</b><span>Perfil 10</span></button>
+      <button type="button" data-go="11" class="contents-item"><b>11</b><span>Perfil 11</span></button>
+      <button type="button" data-go="12" class="contents-item"><b>12</b><span>Perfil 12</span></button>
+      <button type="button" data-go="13" class="contents-item"><b>13</b><span>Perfil 13</span></button>
+      <button type="button" data-go="14" class="contents-item"><b>14</b><span>Perfil 14</span></button>
+      <button type="button" data-go="15" class="contents-item"><b>15</b><span>Perfil 15</span></button>
+      <button type="button" data-go="16" class="contents-item"><b>16</b><span>Perfil 16</span></button>
+      <button type="button" data-go="17" class="contents-item"><b>17</b><span>Perfil 17</span></button>
+      <button type="button" data-go="18" class="contents-item"><b>18</b><span>Perfil 18</span></button>
+      <button type="button" data-go="19" class="contents-item"><b>19</b><span>Perfil 19</span></button>
+      <button type="button" data-go="20" class="contents-item"><b>20</b><span>Perfil 20</span></button>
+      <button type="button" data-go="21" class="contents-item"><b>21</b><span>Perfil 21</span></button>
+      <button type="button" data-go="22" class="contents-item"><b>22</b><span>Perfil 22</span></button>
+      <button type="button" data-go="23" class="contents-item"><b>23</b><span>Perfil 23</span></button>
+      <button type="button" data-go="24" class="contents-item"><b>24</b><span>Perfil 24</span></button>
+      <button type="button" data-go="25" class="contents-item"><b>25</b><span>Perfil 25</span></button>
+      <button type="button" data-go="26" class="contents-item"><b>26</b><span>Perfil 26</span></button>
+      <button type="button" data-go="27" class="contents-item"><b>27</b><span>Perfil 27</span></button>
+      <button type="button" data-go="28" class="contents-item"><b>28</b><span>Perfil 28</span></button>
+      <button type="button" data-go="29" class="contents-item"><b>29</b><span>Perfil 29</span></button>
+      <button type="button" data-go="30" class="contents-item"><b>30</b><span>Perfil 30</span></button>
+      <button type="button" data-go="30" class="contents-item"><b>31</b><span>Perfil 31</span></button>
+    </div>
+  </dialog>
+</body>
+</html>
